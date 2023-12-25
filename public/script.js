@@ -817,36 +817,36 @@ for (const key in stats[queryfield].valueFrequency) {
 
 
     // Event listener for executing MongoDB queries
-    document.getElementById("executeQueryButton").addEventListener("click", function () {
-        const queryInput = document.getElementById("sqlQuery");
-        const sqlQuery = queryInput.value;
-        if (sqlQuery.trim() === "") {
-            alert("Please enter a MongoDB query.");
-            return;
-        }
+    // document.getElementById("executeQueryButton").addEventListener("click", function () {
+    //     const queryInput = document.getElementById("sqlQuery");
+    //     const sqlQuery = queryInput.value;
+    //     if (sqlQuery.trim() === "") {
+    //         alert("Please enter a MongoDB query.");
+    //         return;
+    //     }
 
-        // Make an AJAX request to execute the user's MongoDB query
-        fetch("/query", {
-            method: "POST",
-            body: JSON.stringify({ query: sqlQuery }),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data); // Log the query results
+    //     // Make an AJAX request to execute the user's MongoDB query
+    //     fetch("/query", {
+    //         method: "POST",
+    //         body: JSON.stringify({ query: sqlQuery }),
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //     })
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //             console.log(data); // Log the query results
 
-                // Update the queryResultText with the results
-                const queryResultText = document.getElementById("queryResultText");
-                queryResultText.textContent = JSON.stringify(data, null, 2);
+    //             // Update the queryResultText with the results
+    //             const queryResultText = document.getElementById("queryResultText");
+    //             queryResultText.textContent = JSON.stringify(data, null, 2);
 
-                // You can further process and display the query results as needed
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-    });
+    //             // You can further process and display the query results as needed
+    //         })
+    //         .catch((error) => {
+    //             console.error(error);
+    //         });
+    // });
 
 
 
